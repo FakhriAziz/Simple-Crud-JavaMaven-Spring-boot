@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>DIVISI</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Tabel Divisi</h1>
+            <a href="/divisi/create" class="btn btn-success mb-2">&nbsp;Create Data</a>
+            <table class="table">
+                <tr>
+                    <th>
+                        Nomor
+                    </th>
+                    <th>
+                        Kode
+                    </th>
+                    <th>
+                        Keterangan
+                    </th>
+                    <th>
+                        Action
+                    </th>                
+                </tr>
+                <th:block th:each="divisi:${listDivisi}">
+                    <tr>
+                        <td th:text="${divisi.nomor}"></td>
+                        <td th:text="${divisi.kode}"></td>
+                        <td th:text="${divisi.keterangan}"></td>
+                        <td>
+                            <a th:href="@{'/divisi/edit/'+${divisi.nomor}}">Edit</a>
+                            <a th:href="@{'/divisi/delete/'+${divisi.nomor}}">Delete</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+    </body>
+</html>

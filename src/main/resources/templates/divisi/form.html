@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>DIVISI</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Form Divisi</h1>
+            <form method="POST" th:object="${divisiDto}">
+                <input type="text" th:field="*{kode}"/>
+                <span th:if="${#fields.hasErrors('kode')}" th:errors="*{kode}"></span>
+                <input type="text" th:field="*{keterangan}"/>
+                <span th:if="${#fields.hasErrors('keterangan')}" th:errors="*{keterangan}"></span>
+                <button type="submit">Save</button>
+
+            </form>
+            <a href="/divisi" class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to Data</a>
+        </div>
+    </body>
+</html>
